@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Major;
 use Illuminate\Database\Seeder;
 
 class CourseSeeder extends Seeder
@@ -13,6 +14,5 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
-        //
     }
 }

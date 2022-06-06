@@ -2,6 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Course;
+use App\Models\Major;
+use App\Models\Ministry;
+use App\Models\Teacher;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +17,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(10)->create();
+        Major::factory(10)->create();
+        Course::factory(10)->create();
+        Ministry::factory(10)->create();
+
+        $this->call(TeacherSeeder::class);
     }
 }

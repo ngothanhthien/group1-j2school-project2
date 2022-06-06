@@ -1,18 +1,17 @@
 <?php
 
-namespace Database\Factories;
+namespace Database\Seeders;
 
-use App\Models\Major;
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Database\Seeder;
 
-class TeacherFactory extends Factory
+class MinistrySeeder extends Seeder
 {
     /**
-     * Define the model's default state.
+     * Run the database seeds.
      *
-     * @return array
+     * @return void
      */
-    public function definition()
+    public function run()
     {
         return [
             'name' => $this->faker->name,
@@ -20,7 +19,6 @@ class TeacherFactory extends Factory
             'password' => $this->faker->password,
             'phone' => $this->faker->boolean ? $this->faker->phoneNumber : null,
             'gender' => $this->faker->boolean,
-            'major_id' => Major::query()->inRandomOrder()->value('id'),
         ];
     }
 }
