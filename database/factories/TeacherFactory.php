@@ -14,13 +14,6 @@ class TeacherFactory extends Factory
      */
     public function definition()
     {
-        return [
-            'name' => $this->faker->name,
-            'email' => $this->faker->unique()->companyEmail,
-            'password' => $this->faker->password,
-            'phone' => $this->faker->boolean ? $this->faker->phoneNumber : null,
-            'gender' => $this->faker->boolean,
-            'major_id' => Major::query()->inRandomOrder()->value('id'),
-        ];
+        return [];
     }
 }
