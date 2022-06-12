@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
     {
         Major::factory(10)->create();
         Course::factory(10)->create();
-        Ministry::factory(10)->create();
 
         $this->call(TeacherSeeder::class);
     }
