@@ -25,7 +25,7 @@ import UserIcon from "../components/icons/UserIcon.vue";
                             <span
                                 class="rounded-l-md inline-flex items-center px-3 border-t bg-white border-l border-b border-gray-300 shadow-sm text-sm"
                             >
-                                <UserIcon class="w-4 h-4 fill-current" />
+                                <UserIcon class="w-5 h-5 fill-current" />
                             </span>
                             <input
                                 type="text"
@@ -39,7 +39,7 @@ import UserIcon from "../components/icons/UserIcon.vue";
                             <span
                                 class="rounded-l-md inline-flex items-center px-3 border-t bg-white border-l border-b border-gray-300 shadow-sm text-sm"
                             >
-                                <LockIcon class="w-4 h-4 fill-current" />
+                                <LockIcon class="w-5 h-5 fill-current" />
                             </span>
                             <input
                                 type="password"
