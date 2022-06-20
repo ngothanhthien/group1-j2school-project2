@@ -9,7 +9,7 @@ const router = createRouter({
       component: ()=>import('../views/Login.vue'),
     },
     {
-      path:"/dashboard",
+      path:"/user",
       name:"UserDashboard",
       component: ()=>import('../views/TeacherDashboard.vue'),
     },

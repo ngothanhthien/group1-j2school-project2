@@ -9,7 +9,7 @@ import UserIcon from "../components/icons/UserIcon.vue";
     <div
         class="relative w-full h-screen bg-cover bg-no-repeat"
         style="
-            background-image: url('../../public/img/background-user-login.webp');
+            background-image: url('/img/background-user-login.webp');
         "
     >
         <div
@@ -62,7 +62,7 @@ import UserIcon from "../components/icons/UserIcon.vue";
                     <div class="flex w-full">
                         <button
                             type="submit"
-                            class="py-2 px-4 bg-skin-primary hover:bg-skin-primary-hover text-white w-full transition text-center text-base font-semibold shadow-md rounded-lg"
+                            class="py-2 px-4 bg-skin-primary hover:opacity-high text-white w-full transition text-center text-base font-semibold shadow-md rounded-lg"
                         >
                             Đăng nhập
                         </button>
