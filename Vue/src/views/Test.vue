@@ -1,8 +1,9 @@
 <script setup>
 //import {ref} from 'vue'
+import SelectBox from '@/components/SelectBox.vue'
+import BookIcon from '@/components/icons/BookIcon.vue'
 //const props=defineProps([])
 </script>
-
 <template>
-    <p>{{ $t("message.hello") }}</p>
+    <SelectBox default="test" :options="[1,2,3]" :icon="BookIcon" />
 </template>

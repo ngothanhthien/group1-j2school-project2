@@ -30,13 +30,15 @@ module.exports = {
           'dark-secondary':'var(--secondary-color)',
           'surface':'var(--surface)',
           'background':'var(--background)',
+          'neutral10':'var(--neutral-color-10)',
         }
       },
       borderColor:{
         skin:{
           'primary':'var(--primary-color)',
           'secondary':'var(--secondary-color)',
-          'onSurface':'var(--onSurface)'
+          'onSurface':'var(--onSurface)',
+          'onSurface30':'var(--onSurface-30)'
         }
       },
       ringColor:{

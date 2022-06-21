@@ -8,22 +8,23 @@ const navigationDrawer = [
     {
         title: t("attendance"),
         icon: CalendarIcon,
-        link: "/user"
+        link: "/user",
     },
     {
         title: t("history"),
         icon: HistoryIcon,
-        link: "/user/history"
+        link: "/user/history",
     },
 ];
 //const props=defineProps([])
 </script>
 
 <template>
-    <div class="bg-skin-background">
+    <div class="bg-skin-background grid grid-cols-12">
         <!-- Navigation drawer -->
-        <div class="h-screen p-2">
-            <div class="bg-skin-surface h-full w-1/4 rounded-lg divide-y">
+        <div class="h-screen p-2 col-span-3">
+            <div class="bg-skin-surface h-full rounded-lg divide-y">
+                <!-- avatar -->
                 <div class="px-3.5 py-2">
                     <div class="flex">
                         <div>
@@ -39,10 +40,12 @@ const navigationDrawer = [
                         </div>
                     </div>
                 </div>
-                <div class="py-2 px-2">
+                <!-- menu item -->
+                <div class="py-2 pr-2">
                     <div v-for="tab in navigationDrawer">
-                        <router-link :to="tab.link"
-                            class="cursor-pointer flex items-center font-medium px-4 py-2 mb-1.5 rounded-full"
+                        <router-link
+                            :to="tab.link"
+                            class="text-skin-base hover:bg-skin-neutral10 cursor-pointer flex items-center font-medium px-4 py-2 rounded-r-full"
                         >
                             <div class="mr-4">
                                 <component
@@ -58,13 +61,15 @@ const navigationDrawer = [
                 </div>
             </div>
         </div>
-        <div>
-            <router-view></router-view>
+        <div class="col-span-9 h-screen py-2 pr-2">
+            <div class="bg-skin-surface h-full rounded-lg p-4">
+                <router-view></router-view>
+            </div>
         </div>
     </div>
 </template>
 <style scoped>
-.router-link-exact-active{
-    @apply font-medium text-skin-primary bg-skin-primary30
+.router-link-exact-active {
+    @apply font-medium text-skin-primary bg-skin-primary30;
 }
 </style>

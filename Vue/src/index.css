@@ -6,6 +6,7 @@
     --surface: rgba(255, 255, 255,1);
     --background: rgba(255, 243, 224,1);
     --onSurface:rgba(78, 52, 46,1);
+    --onSurface-30:rgba(78, 52, 46,0.3);
     --onSurfaceVariant:rgba(78, 52, 46,1);
     --primary-color: rgba(255, 138, 128,1);
     --primary-color-30: rgba(255, 138, 128,0.3);
@@ -15,6 +16,7 @@
     --light-secondary-color: rgba(255, 255, 166,1);
     --dark-secondary-color:rgba(168, 181, 69,1);
     --text-default:rgba(78, 52, 46,1);
+    --neutral-color-10:rgba(78, 52, 46,0.1);
 }
 body{
     color: var(--text-default);

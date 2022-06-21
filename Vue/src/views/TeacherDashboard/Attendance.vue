@@ -4,5 +4,17 @@
 </script>
 
 <template>
-    <div>Attendance</div>
+    <!-- Select Box -->
+    <div>
+        <div>
+            
+        </div>
+        <div>
+
+        </div>
+    </div>
+    <!-- attendance table -->
+    <div>
+
+    </div>
 </template>
