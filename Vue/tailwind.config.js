@@ -23,6 +23,7 @@ module.exports = {
         skin:{
           'primary': 'var(--primary-color)',
           'primary30':'var(--primary-color-30)',
+          'primary10':'var(--primary-color-10)',
           'light-primary':'var(--light-primary-color)',
           'dark-primary':'var(--dark-primary-color)',
           'secondary':'var(--secondary-color)',

@@ -10,6 +10,7 @@
     --onSurfaceVariant:rgba(78, 52, 46,1);
     --primary-color: rgba(255, 138, 128,1);
     --primary-color-30: rgba(255, 138, 128,0.3);
+    --primary-color-10:rgba(255, 138, 128,0.10);
     --light-primary-color:rgba(255, 188, 175,1);
     --dark-primary-color:rgba(200, 90, 84,1);
     --secondary-color: rgba(220, 231, 117,1);
