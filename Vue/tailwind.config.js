@@ -17,6 +17,8 @@ module.exports = {
         skin:{
           'base':'var(--text-default)',
           'primary':'var(--primary-color)',
+          'error':'var(--error-color)',
+          'success':'var(--success-color)',
         }
       },
       backgroundColor:{
@@ -32,6 +34,12 @@ module.exports = {
           'surface':'var(--surface)',
           'background':'var(--background)',
           'neutral10':'var(--neutral-color-10)',
+          'neutral5':'var(--neutral-color-5)',
+        }
+      },
+      accentColor:{
+        skin:{
+          'primary':'var(--primary-color)',
         }
       },
       borderColor:{

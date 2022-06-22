@@ -18,6 +18,9 @@
     --dark-secondary-color:rgba(168, 181, 69,1);
     --text-default:rgba(78, 52, 46,1);
     --neutral-color-10:rgba(78, 52, 46,0.1);
+    --neutral-color-5:rgba(78, 52, 46,0.05);
+    --error-color:rgba(170, 0, 255,1);
+    --success-color:rgba(27, 94, 32,1);
 }
 body{
     color: var(--text-default);
