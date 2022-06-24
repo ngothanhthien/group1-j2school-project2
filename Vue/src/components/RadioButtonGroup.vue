@@ -1,7 +1,7 @@
 <script setup>
 import {ref,watch} from 'vue'
 const props = defineProps(["options","name","value"]);
-const emit=defineEmits(["getValue"])
+const emit=defineEmits(["update:value"])
 const groupValue=ref(props.value);
 </script>
 
@@ -14,6 +14,7 @@ const groupValue=ref(props.value);
                 :name="name"
                 :value="option.value"
                 v-model="groupValue"
+                @change="$emit('update:value')"
             />
             <div
                 class="w-3 h-3 border border-skin-onSurface30 rounded-full peer-checked:bg-skin-primary peer-checked:border-none"

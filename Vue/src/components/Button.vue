@@ -6,7 +6,7 @@
 <template>
     <button
         @click="$emit('buttonClick')"
-        class="first-letter:capitalize py-2 px-4 hover:opacity-high text-white w-full transition text-center text-base font-semibold shadow-md rounded-lg"
+        class="select-none first-letter:capitalize py-2 px-4 hover:opacity-high w-full transition text-center text-base font-semibold rounded-lg"
     >
         <slot></slot>
     </button>

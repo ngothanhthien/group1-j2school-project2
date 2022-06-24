@@ -3,6 +3,8 @@ import { ref } from "vue";
 import { useAttendanceStore } from "@/stores/attendance";
 import BookIcon from "@/components/icons/BookIcon.vue";
 import ClassIcon from "@/components/icons/ClassIcon.vue";
+import GroupIcon from "@/components/icons/GroupIcon.vue";
+import ClockIcon from "@/components/icons/ClockIcon.vue";
 import SelectBox from "@/components/SelectBox.vue";
 import RadioButtonGroup from "@/components/RadioButtonGroup.vue";
 import StatusStudent from "@/components/StatusStudent.vue";
@@ -10,13 +12,7 @@ import DayOffStudent from "@/components/DayOffStudent.vue";
 import Button from "@/components/Button.vue";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
-//const props=defineProps([])
 const store = useAttendanceStore();
-// store.$subscribe((mutation,state) =>{
-//     if(store.subject!=null&&store.room==null){
-//         return
-//     }
-// })
 const subjects = [
     "Tin học đại cương",
     "Lập trình hướng đối tượng",
@@ -57,6 +53,9 @@ const students = {
         attendance: ref(1),
     },
 };
+const totalStudent=Object.keys(students).length;
+const offStudents=ref({});
+const totalOnStudent=ref(totalStudent);
 const today = 14;
 const subjectSelected = (v) => {
     store.subject = v;
@@ -67,9 +66,19 @@ const subjectSelected = (v) => {
 const roomSelected = (v) => {
     store.room = v;
 };
+const studentAttendance=(id)=>{
+    if(students[id]['attendance'].value==1){
+        delete offStudents.value[id];
+        getTotalOnStudent();
+    }else{
+        offStudents.value[id] =1;
+        getTotalOnStudent();
+    }
+}
+const getTotalOnStudent=()=>totalOnStudent.value=totalStudent-Object.keys(offStudents.value).length;
+const attendanceSend = () => {};
 const roomKey = ref(0); //to refresh component
 </script>
-
 <template>
     <!-- Select Box -->
     <div class="flex">
@@ -123,7 +132,13 @@ const roomKey = ref(0); //to refresh component
                     <td>{{ id }}</td>
                     <td>{{ student.name }}</td>
                     <td>
-                        <RadioButtonGroup :value="student.attendance" class="flex" :name="id" :options="attendanceOption" />
+                        <RadioButtonGroup
+                            :value="student.attendance"
+                            class="flex"
+                            :name="id"
+                            :options="attendanceOption"
+                            @update:value="studentAttendance(id)"
+                        />
                     </td>
                     <td>
                         <DayOffStudent
@@ -137,8 +152,46 @@ const roomKey = ref(0); //to refresh component
                 </tr>
                 <tr>
                     <td colspan="5">
-                        <div class="w-40 mx-auto">
-                            <Button class="bg-skin-primary">{{$t("attendance")}}</Button>
+                        <div class="w-64 text-xl mx-auto my-2">
+                            <!-- time -->
+                            <div class="flex items-center justify-center mb-1">
+                                <div>
+                                    <ClockIcon class="w-6 h-6 fill-current" />
+                                </div>
+                                <div class="flex items-center">
+                                    <div>
+                                        <input
+                                            class="w-12"
+                                            type="text"
+                                            value="15:30"
+                                        />
+                                    </div>
+                                    <div>-</div>
+                                    <div>
+                                        <input
+                                            class="w-12"
+                                            type="text"
+                                            value="17:30"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- student count -->
+                            <div
+                                class="mb-2 font-medium text-skin-dark-secondary text-3xl text-center flex items-center justify-center"
+                            >
+                                <div class="select-none">{{totalOnStudent}}/{{totalStudent}}</div>
+                                <div class="ml-2">
+                                    <GroupIcon class="w-10 h-10 fill-current" />
+                                </div>
+                            </div>
+                            <div class="w-40 mx-auto">
+                                <Button
+                                    @buttonClick="attendanceSend"
+                                    class="bg-skin-primary text-white"
+                                    >{{ $t("attendance") }}</Button
+                                >
+                            </div>
                         </div>
                     </td>
                 </tr>

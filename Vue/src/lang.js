@@ -14,7 +14,9 @@ export const messages = {
         offSchool:"off",
         onSchool:"on",
         offSchoolWithReason:"other",
-        dayOff:"day off"
+        dayOff:"day off",
+        confirm:"confirm",
+        cancel:"cancel"
     },
     vi: {
         hello:"xin chào",
@@ -32,5 +34,7 @@ export const messages = {
         leaveStatus:"nghỉ học",
         onGoingStatus:"đang học",
         dayOff:"số buổi nghỉ",
+        confirm:"xác nhận",
+        cancel:"từ chối"
     },
 };

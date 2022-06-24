@@ -17,6 +17,8 @@ module.exports = {
         skin:{
           'base':'var(--text-default)',
           'primary':'var(--primary-color)',
+          'secondary':'var(--secondary-color)',
+          'dark-secondary':'var(--dark-secondary-color)',
           'error':'var(--error-color)',
           'success':'var(--success-color)',
         }

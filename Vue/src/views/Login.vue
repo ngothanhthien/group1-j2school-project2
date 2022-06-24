@@ -62,7 +62,7 @@ import Button from "../components/Button.vue";
                     </div>
                     <div class="flex w-full">
                         <Button
-                        class="bg-skin-primary"
+                        class="bg-skin-primary text-white"
                             >
                             Đăng nhập
                         </Button>
