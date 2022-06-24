@@ -7,6 +7,7 @@ import SelectBox from "@/components/SelectBox.vue";
 import RadioButtonGroup from "@/components/RadioButtonGroup.vue";
 import StatusStudent from "@/components/StatusStudent.vue";
 import DayOffStudent from "@/components/DayOffStudent.vue";
+import Button from "@/components/Button.vue";
 import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 //const props=defineProps([])
@@ -67,9 +68,6 @@ const roomSelected = (v) => {
     store.room = v;
 };
 const roomKey = ref(0); //to refresh component
-const radioModel= (value)=>{
-    console.log(1);
-}
 </script>
 
 <template>
@@ -125,7 +123,7 @@ const radioModel= (value)=>{
                     <td>{{ id }}</td>
                     <td>{{ student.name }}</td>
                     <td>
-                        <RadioButtonGroup v-model:value="student.attendance" class="flex" :name="id" :options="attendanceOption" />
+                        <RadioButtonGroup :value="student.attendance" class="flex" :name="id" :options="attendanceOption" />
                     </td>
                     <td>
                         <DayOffStudent
@@ -135,6 +133,13 @@ const radioModel= (value)=>{
                     </td>
                     <td>
                         <StatusStudent :status="student.status" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5">
+                        <div class="w-40 mx-auto">
+                            <Button class="bg-skin-primary">{{$t("attendance")}}</Button>
+                        </div>
                     </td>
                 </tr>
             </tbody>

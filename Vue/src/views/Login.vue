@@ -2,6 +2,7 @@
 //import {ref} from 'vue'
 import LockIcon from "../components/icons/LockIcon.vue";
 import UserIcon from "../components/icons/UserIcon.vue";
+import Button from "../components/Button.vue";
 //const props=defineProps([])
 </script>
 
@@ -60,12 +61,11 @@ import UserIcon from "../components/icons/UserIcon.vue";
                         </div>
                     </div>
                     <div class="flex w-full">
-                        <button
-                            type="submit"
-                            class="py-2 px-4 bg-skin-primary hover:opacity-high text-white w-full transition text-center text-base font-semibold shadow-md rounded-lg"
-                        >
+                        <Button
+                        class="bg-skin-primary"
+                            >
                             Đăng nhập
-                        </button>
+                        </Button>
                     </div>
                 </form>
             </div>

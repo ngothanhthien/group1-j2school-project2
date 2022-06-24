@@ -3,9 +3,6 @@ import {ref,watch} from 'vue'
 const props = defineProps(["options","name","value"]);
 const emit=defineEmits(["getValue"])
 const groupValue=ref(props.value);
-watch(groupValue,(value)=>{
-    emit('update:value',value);
-})
 </script>
 
 <template>
