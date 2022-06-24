@@ -53,9 +53,9 @@ const students = {
         attendance: ref(1),
     },
 };
-const totalStudent=Object.keys(students).length;
-const offStudents=ref({});
-const totalOnStudent=ref(totalStudent);
+const totalStudent = Object.keys(students).length;
+const offStudents = ref({});
+const totalOnStudent = ref(totalStudent);
 const today = 14;
 const subjectSelected = (v) => {
     store.subject = v;
@@ -66,16 +66,18 @@ const subjectSelected = (v) => {
 const roomSelected = (v) => {
     store.room = v;
 };
-const studentAttendance=(id)=>{
-    if(students[id]['attendance'].value==1){
+const studentAttendance = (id) => {
+    if (students[id]["attendance"].value == 1) {
         delete offStudents.value[id];
         getTotalOnStudent();
-    }else{
-        offStudents.value[id] =1;
+    } else {
+        offStudents.value[id] = 1;
         getTotalOnStudent();
     }
-}
-const getTotalOnStudent=()=>totalOnStudent.value=totalStudent-Object.keys(offStudents.value).length;
+};
+const getTotalOnStudent = () =>
+    (totalOnStudent.value =
+        totalStudent - Object.keys(offStudents.value).length);
 const attendanceSend = () => {};
 const roomKey = ref(0); //to refresh component
 </script>
@@ -180,7 +182,9 @@ const roomKey = ref(0); //to refresh component
                             <div
                                 class="mb-2 font-medium text-skin-dark-secondary text-3xl text-center flex items-center justify-center"
                             >
-                                <div class="select-none">{{totalOnStudent}}/{{totalStudent}}</div>
+                                <div class="select-none">
+                                    {{ totalOnStudent }}/{{ totalStudent }}
+                                </div>
                                 <div class="ml-2">
                                     <GroupIcon class="w-10 h-10 fill-current" />
                                 </div>
