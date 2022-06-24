@@ -51,7 +51,7 @@ clickOutside(selectBoxElement,dropdownClose)
         </div>
         <!-- Drop down -->
         <div
-            class="shadow absolute min-w-max w-full rounded z-10 first-letter:capitalize"
+            class="shadow absolute min-w-max w-full rounded z-10 first-letter:capitalize bg-skin-surface"
             v-show="selectBox.isShow"
         >
             <div

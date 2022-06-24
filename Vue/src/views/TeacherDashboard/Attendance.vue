@@ -4,9 +4,11 @@ import { useAttendanceStore } from "@/stores/attendance";
 import BookIcon from "@/components/icons/BookIcon.vue";
 import ClassIcon from "@/components/icons/ClassIcon.vue";
 import SelectBox from "@/components/SelectBox.vue";
-import RadioBox from "@/components/RadioBox.vue";
+import RadioButtonGroup from "@/components/RadioButtonGroup.vue";
 import StatusStudent from "@/components/StatusStudent.vue";
 import DayOffStudent from "@/components/DayOffStudent.vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 //const props=defineProps([])
 const store = useAttendanceStore();
 // store.$subscribe((mutation,state) =>{
@@ -19,28 +21,42 @@ const subjects = [
     "Lập trình hướng đối tượng",
     "Lập trình web",
 ];
-let rooms = ref(null);
-const students = [
+const attendanceOption = [
     {
-        id: "BKD123",
+        title: t("onSchool"),
+        value: 1,
+    },
+    {
+        title: t("offSchool"),
+        value: 0,
+    },
+    {
+        title: t("offSchoolWithReason"),
+        value: 2,
+    },
+];
+let rooms = ref(null);
+const students = {
+    BKD123: {
         name: "Nguyễn Minh Phúc",
         status: 1,
         totalOff: 0,
+        attendance: ref(1),
     },
-    {
-        id: "BKD124",
+    BKD124: {
         name: "Ngô Bảo Châu",
         status: 2,
         totalOff: 1,
+        attendance: ref(1),
     },
-    {
-        id: "BKD125",
+    BKD125: {
         name: "Lê Minh Khả",
         status: 0,
         totalOff: 5,
+        attendance: ref(1),
     },
-];
-const today=14;
+};
+const today = 14;
 const subjectSelected = (v) => {
     store.subject = v;
     store.room = null;
@@ -51,6 +67,9 @@ const roomSelected = (v) => {
     store.room = v;
 };
 const roomKey = ref(0); //to refresh component
+const radioModel= (value)=>{
+    console.log(1);
+}
 </script>
 
 <template>
@@ -79,7 +98,7 @@ const roomKey = ref(0); //to refresh component
     <!-- attendance table -->
     <div
         v-if="store.room != null && store.subject != null"
-        class="border rounded-xl overflow-hidden"
+        class="border rounded-xl overflow-hidden mt-2"
     >
         <table class="table-auto w-full">
             <thead>
@@ -102,30 +121,11 @@ const roomKey = ref(0); //to refresh component
                 </tr>
             </thead>
             <tbody class="divide-y-[0.5px]">
-                <tr v-for="student in students" :key="student.id">
-                    <td>{{ student.id }}</td>
+                <tr v-for="(student, id) in students" :key="id">
+                    <td>{{ id }}</td>
                     <td>{{ student.name }}</td>
-                    <td class="flex">
-                        <RadioBox
-                            :name="'attendance-' + student.id"
-                            :text="$t('onSchool')"
-                            value="1"
-                            :isChecked="true"
-                        />
-                        <RadioBox
-                            class="ml-2"
-                            :name="'attendance-' + student.id"
-                            :text="$t('offSchool')"
-                            value="0"
-                            :isChecked="false"
-                        />
-                        <RadioBox
-                            class="ml-2"
-                            :name="'attendance-' + student.id"
-                            :text="$t('offSchoolWithReason')"
-                            value="2"
-                            :isChecked="false"
-                        />
+                    <td>
+                        <RadioButtonGroup v-model:value="student.attendance" class="flex" :name="id" :options="attendanceOption" />
                     </td>
                     <td>
                         <DayOffStudent
@@ -141,3 +141,11 @@ const roomKey = ref(0); //to refresh component
         </table>
     </div>
 </template>
+<style scoped>
+td {
+    @apply py-2 px-4 first-letter:capitalize;
+}
+th {
+    @apply px-4 py-2 first-letter:capitalize;
+}
+</style>

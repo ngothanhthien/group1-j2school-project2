@@ -5,6 +5,7 @@ export const useAttendanceStore = defineStore({
   state: () => ({
     subject: null,
     room: null,
+    students: [],
   }),
 //   getters: {
 //     doubleCount: (state) => state.counter * 2
