@@ -1,34 +1,31 @@
 import { createRouter, createWebHistory } from 'vue-router'
-
+import AdminLoginView from '../views/AdminLoginView.vue'
+import { getCookie } from '../logic/cookie'
+import {ADMIN_TOKEN,ADMIN_INFO} from '@/cookieName'
+const isAdmin=(to)=>{
+  const adminToken = getCookie(ADMIN_TOKEN);
+  if(to.name=='AdminLogin'&&adminToken){
+    return {name:'AdminDashBoard'}
+  }
+  if(to.name!='AdminLogin'&&!adminToken){
+    return {name:'AdminLogin'}
+  }
+}
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path:"/",
-      name:"Login",
-      component: ()=>import('../views/Login.vue'),
+      path: '/admin',
+      name: 'AdminLogin',
+      component: AdminLoginView,
+      beforeEnter: isAdmin,
     },
     {
-      path:"/user",
-      name:"UserDashboard",
-      component: ()=>import('../views/TeacherDashboard.vue'),
-      children: [
-        {
-          path:'',
-          component: ()=>import('../views/TeacherDashboard/Attendance.vue')
-        },
-        {
-          path:'history',
-          component: ()=>import('../views/TeacherDashboard/History.vue')
-        }
-      ]
+      path:'/admin/dashboard',
+      name:'AdminDashboard',
+      component: ()=>import('@/views/AdminDashboard.vue'),
+      beforeEnter: isAdmin,
     },
-    {
-      path:"/test",
-      name:"Test",
-      component: ()=>import('../views/Test.vue'),
-    }
   ]
 })
-
 export default router
